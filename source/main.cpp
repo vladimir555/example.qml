@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
     QQuickStyle::setStyle("Material");
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/form/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/form/labels.qml")));
 
     return application.exec();
 }

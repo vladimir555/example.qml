@@ -7,17 +7,17 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     Material.theme: Material.Dark
+    Material.foreground: Material.Light
 
-    id: window
+    title: "example.qml"
 
-    width: 300
-    height: 100
+    id: window_main
 
-    minimumWidth: 200
-    minimumHeight: 100
+    minimumWidth: 400
+    minimumHeight: 350
 
     visible: true
-    visibility: "AutomaticVisibility"
+
 
     GridLayout {
         columns: 2
@@ -25,7 +25,7 @@ ApplicationWindow {
         rowSpacing: 20
         columnSpacing: 20
 
-        anchors.horizontalCenter: window.horizontalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 32
         anchors.bottomMargin: 32
         anchors.leftMargin: 32
@@ -34,25 +34,51 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        Label {
-            id: label_password
-            text: qsTr("Password:")
-        }
-
-        TextInput {
-            text: "Hello";
+        TextField {
+            color: "white"
+            implicitWidth: 150
+            maximumLength: 10
             echoMode: TextInput.Password
-            anchors.right: parent.right
+            Layout.alignment: Qt.AlignCenter
         }
 
         Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            id: button_ok
+            id: button_enter
+            implicitWidth: 150
+            Layout.alignment: Qt.AlignCenter
             Text {
-                id: button_ok_label
-                text: qsTr("OK")
+                color: "white"
+                text: qsTr("Enter")
                 anchors.centerIn: parent
             }
         }
+
+        Repeater {
+            model: [1, 2, 3, 4, 5, 6]
+            delegate: Button {
+                id: button
+                implicitWidth: 150
+                Layout.alignment: Qt.AlignCenter
+                visible: true
+                Text {
+                    color: "white"
+                    text: qsTr("Button " + modelData)
+                    anchors.centerIn: parent
+                }
+            }
+        }
+
+        Button {
+            id: button_new
+            implicitWidth: 150
+            Layout.columnSpan: 2
+            anchors.horizontalCenter: parent.horizontalCenter
+            Text {
+                color: "white"
+                text: qsTr("New window")
+                anchors.centerIn: parent
+            }
+        }
+
     }
 }

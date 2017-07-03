@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += qml quick quickcontrols2
 
-TARGET = example_qml
+TARGET = example.qml
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -30,8 +30,9 @@ HEADERS  +=
 FORMS    +=
 
 DISTFILES += \
+    locale/application_ru.ts \
     qml/form/main.qml \
-    locale/application_ru.ts
+    qml/form/labels.qml
 
 RESOURCES += \
     application.qrc

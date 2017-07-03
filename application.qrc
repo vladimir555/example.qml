@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/form/main.qml</file>
+        <file>qml/form/labels.qml</file>
     </qresource>
 </RCC>
