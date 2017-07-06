@@ -25,7 +25,8 @@ Main::Main()
         {"button4", false},
         {"button5", false},
         {"button6", false}
-    }
+    },
+    m_labels_form(getButtonsState())
 {
     m_view.rootContext()->setContextProperty("form", this);
     m_view.setSource(QStringLiteral("qrc:/qml/form/main.qml"));
@@ -52,6 +53,7 @@ void Main::onButtonEnterClicked() {
     m_buttons = createButtonsByPassword(password);
 
     updateFormButtonsState(getButtonsState());
+    m_labels_form.updateFormLabelState(getButtonsState());
 }
 
 
@@ -125,6 +127,12 @@ QList<Main::TButton> Main::createButtonsByPassword(QString const &password) {
             {"button6", false}
         });
     }
+}
+
+
+void Main::onButtonNewWindowClicked() {
+    m_labels_form.updateFormLabelState(getButtonsState());
+    m_labels_form.show();
 }
 
 

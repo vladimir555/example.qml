@@ -17,10 +17,14 @@ public:
 
     void show();
 
+    void updateFormLabelState(QList<bool> const &buttons_state);
+
 private:
     QQmlEngine              m_engine;
     QQuickView              m_view;
-    //QList<TButton>          m_buttons;
+    QList<bool>             m_buttons_state;
+
+    QObject                *m_window_labels;
 };
 
 

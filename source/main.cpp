@@ -1,8 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
-#include <QtDebug>
-
+#include <qlogging.h>
 
 #include "form/main_.h"
 

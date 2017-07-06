@@ -83,6 +83,7 @@ Item {
             visible: false
             text: qsTr("New window")
             onClicked: {
+                form.onButtonNewWindowClicked()
                 console.log(form.buttons_state)
             }
         }

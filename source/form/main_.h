@@ -5,6 +5,8 @@
 #include <QQuickView>
 #include <QQmlApplicationEngine>
 
+#include "labels.h"
+
 
 namespace form {
 
@@ -31,7 +33,7 @@ private:
         bool    is_enabled;
     };
 
-    static QList<TButton>  createButtonsByPassword(QString const &password);
+    static QList<TButton>   createButtonsByPassword(QString const &password);
 
     QQmlApplicationEngine   m_engine;
     QQuickView              m_view;
@@ -39,8 +41,11 @@ private:
     QObject                *m_text_field_password;
     QObject                *m_window_main;
 
+    Labels                  m_labels_form;
+
 public slots:
     void onButtonEnterClicked();
+    void onButtonNewWindowClicked();
 };
 
 
