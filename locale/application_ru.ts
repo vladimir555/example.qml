@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
+    <name>QCoreApplication</name>
+    <message>
+        <location filename="../source/main.cpp" line="19"/>
+        <source>Enter</source>
+        <translation>Логин</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/form/main.qml" line="62"/>

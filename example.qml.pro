@@ -37,6 +37,7 @@ FORMS +=
 
 DISTFILES += \
     locale/application_ru.ts \
+    locale/application_ru.qm \
     qml/form/main.qml \
     qml/form/labels.qml
 

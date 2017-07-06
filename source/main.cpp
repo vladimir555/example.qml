@@ -13,9 +13,11 @@ int main(int argc, char *argv[]) {
     QQuickStyle::setStyle("Universal");
 
     QTranslator translator;
-    translator.load(
-        "application_ru.ts");
-    qApp->installTranslator(&translator);
+    bool is_loaded = translator.load(QStringLiteral(":/locale/application_ru.qm"));
+    if (is_loaded)
+        QGuiApplication::installTranslator(&translator);
+    else
+        qDebug() << "translatinon not loaded";
 
     try {
         form::Main main_form;

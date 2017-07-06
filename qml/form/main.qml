@@ -59,7 +59,7 @@ Item {
             implicitWidth: 150
             Layout.alignment: Qt.AlignCenter
             onClicked: form.onButtonEnterClicked()
-            text: QT_TR_NOOP("Enter")
+            text: qsTr("Enter")
         }
 
         Repeater {
@@ -71,7 +71,7 @@ Item {
                 implicitWidth: 150
                 Layout.alignment: Qt.AlignCenter
                 visible: false
-                text: qsTr("" + modelData)
+                text: qsTr(modelData)
             }
         }
 
