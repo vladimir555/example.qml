@@ -32,6 +32,11 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
 
+        Item {
+            Layout.columnSpan: parent.columns
+            height: 5
+        }
+
         Repeater {
             model: [1, 2, 3, 4, 5, 6]
             delegate: Label {

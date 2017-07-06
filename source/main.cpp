@@ -2,23 +2,29 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <QtDebug>
-#include <QFont>
+
+
+#include "form/main_.h"
+
 
 int main(int argc, char *argv[]) {
     QGuiApplication application(argc, argv);
 
-    qDebug() << "start";
+    QQuickStyle::setStyle("Universal");
 
-    QFont font(QFont().defaultFamily(), 20);
+    try {
+        form::Main main_form;
+        main_form.show();
 
-    application.setFont(font);
-
-    QQmlApplicationEngine engine;
-
-    QQuickStyle::setStyle("Material");
-
-    engine.load(QUrl(QStringLiteral("qrc:/qml/form/main.qml")));
-    engine.load(QUrl(QStringLiteral("qrc:/qml/form/labels.qml")));
+        return application.exec();
+    } catch (std::exception const &e) {
+        qDebug() << e.what();
+    }
 
     return application.exec();
+
+//    engine.load(QUrl(QStringLiteral("qrc:/qml/form/main.qml")));
+//    engine.load(QUrl(QStringLiteral("qrc:/qml/form/labels.qml")));
+//    engine.load(QUrl(QStringLiteral("qrc:/qml/form/labels.qml")));
+
 }

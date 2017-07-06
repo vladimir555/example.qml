@@ -1,23 +1,25 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.2
 import QtQuick.Controls.Universal 2.2
 import QtQuick.Layouts 1.3
 
 
-ApplicationWindow {
-    Material.theme: Material.Dark
-    Material.foreground: Material.Light
+Item {
+    function updateFormButtonsState(buttons_state) {
+        for (var i = 0; i < buttons.count; i++) {
+            buttons.itemAt(i).visible = buttons_state[i]
+        }
 
-    title: "example.qml"
+        console.log(buttons_state)
+    }
 
     id: window_main
+    objectName: "window_main"
 
-    minimumWidth: 400
-    minimumHeight: 350
+    width: 400
+    height: 350
 
     visible: true
-
 
     GridLayout {
         columns: 2
@@ -30,12 +32,17 @@ ApplicationWindow {
         anchors.bottomMargin: 32
         anchors.leftMargin: 32
         anchors.rightMargin: 32
-
         anchors.left: parent.left
         anchors.right: parent.right
 
+        Item {
+            Layout.columnSpan: parent.columns
+            height: 5
+        }
+
         TextField {
-            color: "white"
+            id: text_field_password
+            objectName: "password"
             implicitWidth: 150
             maximumLength: 10
             echoMode: TextInput.Password
@@ -46,39 +53,32 @@ ApplicationWindow {
             id: button_enter
             implicitWidth: 150
             Layout.alignment: Qt.AlignCenter
-            Text {
-                color: "white"
-                text: qsTr("Enter")
-                anchors.centerIn: parent
-            }
+            onClicked: form.onButtonEnterClicked()
+            text: qsTr("Enter")
         }
 
         Repeater {
-            model: [1, 2, 3, 4, 5, 6]
+            id: buttons
+            model: form.buttons_name
+
             delegate: Button {
                 id: button
                 implicitWidth: 150
                 Layout.alignment: Qt.AlignCenter
                 visible: true
-                Text {
-                    color: "white"
-                    text: qsTr("Button " + modelData)
-                    anchors.centerIn: parent
-                }
+                text: qsTr("" + modelData)
             }
         }
 
         Button {
             id: button_new
             implicitWidth: 150
-            Layout.columnSpan: 2
+            Layout.columnSpan: parent.columns
             anchors.horizontalCenter: parent.horizontalCenter
-            Text {
-                color: "white"
-                text: qsTr("New window")
-                anchors.centerIn: parent
+            text: qsTr("New window")
+            onClicked: {
+                console.log(form.buttons_state)
             }
         }
-
     }
 }
