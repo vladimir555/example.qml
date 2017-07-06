@@ -5,6 +5,7 @@
 #include <QQmlEngine>
 #include <QQmlComponent>
 #include <QMetaObject>
+#include <QGuiApplication>
 
 #include "../utility/assert.h"
 
@@ -18,14 +19,7 @@ namespace form {
 Main::Main()
 :
     m_view(&m_engine, nullptr),
-    m_buttons {
-        {"button1", false},
-        {"button2", false},
-        {"button3", false},
-        {"button4", false},
-        {"button5", false},
-        {"button6", false}
-    },
+    m_buttons(createButtonsByPassword("wrong_password")),
     m_labels_form(getButtonsState())
 {
     m_view.rootContext()->setContextProperty("form", this);
@@ -80,51 +74,53 @@ QList<bool> Main::getButtonsState() {
 
 
 QList<Main::TButton> Main::createButtonsByPassword(QString const &password) {
+    auto button = tr("Button");
+    qDebug() << button;
     // operator password
     if (password == "") {
         return QList<TButton> ({
-            {"button1", true},
-            {"button2", true},
-            {"button3", false},
-            {"button4", false},
-            {"button5", false},
-            {"button6", false}
+            {button + "1", true},
+            {button + "2", true},
+            {button + "3", false},
+            {button + "4", false},
+            {button + "5", false},
+            {button + "6", false}
         });
     }
 
     // technician password
     if (password == "111") {
         return QList<TButton> ({
-            {"button1", true},
-            {"button2", true},
-            {"button3", true},
-            {"button4", true},
-            {"button5", false},
-            {"button6", false}
+            {button + "1", true},
+            {button + "2", true},
+            {button + "3", true},
+            {button + "4", true},
+            {button + "5", false},
+            {button + "6", false}
         });
     }
 
     // engineer password
     if (password == "222") {
         return QList<TButton> ({
-            {"button1", true},
-            {"button2", true},
-            {"button3", true},
-            {"button4", true},
-            {"button5", true},
-            {"button6", true}
+            {button + "1", true},
+            {button + "2", true},
+            {button + "3", true},
+            {button + "4", true},
+            {button + "5", true},
+            {button + "6", true}
         });
     }
 
     // wrong password
     {
         return QList<TButton> ({
-            {"button1", false},
-            {"button2", false},
-            {"button3", false},
-            {"button4", false},
-            {"button5", false},
-            {"button6", false}
+            {button + "1", false},
+            {button + "2", false},
+            {button + "3", false},
+            {button + "4", false},
+            {button + "5", false},
+            {button + "6", false}
         });
     }
 }

@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>qml/form/main.qml</file>
         <file>qml/form/labels.qml</file>
-        <file>locale/application_ru.qm</file>
-        <file>locale/application_ru.ts</file>
+        <file>locale/main_ru.qm</file>
     </qresource>
 </RCC>

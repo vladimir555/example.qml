@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     QQuickStyle::setStyle("Universal");
 
     QTranslator translator;
-    bool is_loaded = translator.load(QStringLiteral(":/locale/application_ru.qm"));
+    bool is_loaded = translator.load(QStringLiteral(":/locale/main_ru.qm"));
     if (is_loaded)
         QGuiApplication::installTranslator(&translator);
     else

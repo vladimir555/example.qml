@@ -36,14 +36,11 @@ HEADERS += \
 FORMS +=
 
 DISTFILES += \
-    locale/application_ru.ts \
-    locale/application_ru.qm \
     qml/form/main.qml \
-    qml/form/labels.qml
+    qml/form/labels.qml \
+    locale/main_ru.ts
 
 RESOURCES += \
     application.qrc
 
-TRANSLATIONS += locale/application_ru.ts
-
-SOURCE += qml/form/*.qml
+TRANSLATIONS += locale/main_ru.ts

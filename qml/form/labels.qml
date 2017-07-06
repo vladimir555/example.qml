@@ -50,7 +50,7 @@ Item {
             delegate: Label {
                 Layout.alignment: Qt.AlignCenter
                 visible: true
-                text: qsTr("Label " + modelData)
+                text: qsTr("Label_" + modelData)
             }
         }
     }

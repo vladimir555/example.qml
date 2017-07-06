@@ -2,11 +2,11 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
-    <name>QCoreApplication</name>
+    <name>form::Main</name>
     <message>
-        <location filename="../source/main.cpp" line="19"/>
-        <source>Enter</source>
-        <translation>Логин</translation>
+        <location filename="../source/form/main_.cpp" line="77"/>
+        <source>Button</source>
+        <translation>Кнопка</translation>
     </message>
 </context>
 <context>
