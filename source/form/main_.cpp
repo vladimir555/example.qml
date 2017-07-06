@@ -19,12 +19,12 @@ Main::Main()
 :
     m_view(&m_engine, nullptr),
     m_buttons {
-        {"button1", true},
-        {"button2", true},
-        {"button3", true},
-        {"button4", true},
-        {"button5", true},
-        {"button6", true}
+        {"button1", false},
+        {"button2", false},
+        {"button3", false},
+        {"button4", false},
+        {"button5", false},
+        {"button6", false}
     }
 {
     m_view.rootContext()->setContextProperty("form", this);
@@ -47,61 +47,17 @@ void Main::show() {
 void Main::onButtonEnterClicked() {
     auto password = m_text_field_password->property("text").toString();
 
-    // operator password
-    if (password == "") {
-        m_buttons = {
-            {"button1", true},
-            {"button2", true},
-            {"button3", false},
-            {"button4", false},
-            {"button5", false},
-            {"button6", false}
-        };
-    } else
-
-    // technician password
-    if (password == "111") {
-        m_buttons = {
-            {"button1", true},
-            {"button2", true},
-            {"button3", true},
-            {"button4", true},
-            {"button5", false},
-            {"button6", false}
-        };
-    } else
-
-    // engineer password
-    if (password == "222") {
-        m_buttons = {
-            {"button1", true},
-            {"button2", true},
-            {"button3", true},
-            {"button4", true},
-            {"button5", true},
-            {"button6", true}
-        };
-    } else
-    // wrong password
-    {
-        m_buttons = {
-            {"button1", false},
-            {"button2", false},
-            {"button3", false},
-            {"button4", false},
-            {"button5", false},
-            {"button6", false}
-        };
-    }
-
     qDebug() << "password: " << password;
-    updateFormButtonsState();
+
+    m_buttons = createButtonsByPassword(password);
+
+    updateFormButtonsState(getButtonsState());
 }
 
 
-void Main::updateFormButtonsState() {
+void Main::updateFormButtonsState(QList<bool> const &buttons_state) {
     QMetaObject::invokeMethod(m_window_main, "updateFormButtonsState",
-        Q_ARG(QVariant, QVariant::fromValue(getButtonsState())));
+        Q_ARG(QVariant, QVariant::fromValue(buttons_state)));
 }
 
 
@@ -118,6 +74,57 @@ QList<bool> Main::getButtonsState() {
     for (auto const button: m_buttons)
         result.append(button.is_enabled);
     return result;
+}
+
+
+QList<Main::TButton> Main::createButtonsByPassword(QString const &password) {
+    // operator password
+    if (password == "") {
+        return QList<TButton> ({
+            {"button1", true},
+            {"button2", true},
+            {"button3", false},
+            {"button4", false},
+            {"button5", false},
+            {"button6", false}
+        });
+    }
+
+    // technician password
+    if (password == "111") {
+        return QList<TButton> ({
+            {"button1", true},
+            {"button2", true},
+            {"button3", true},
+            {"button4", true},
+            {"button5", false},
+            {"button6", false}
+        });
+    }
+
+    // engineer password
+    if (password == "222") {
+        return QList<TButton> ({
+            {"button1", true},
+            {"button2", true},
+            {"button3", true},
+            {"button4", true},
+            {"button5", true},
+            {"button6", true}
+        });
+    }
+
+    // wrong password
+    {
+        return QList<TButton> ({
+            {"button1", false},
+            {"button2", false},
+            {"button3", false},
+            {"button4", false},
+            {"button5", false},
+            {"button6", false}
+        });
+    }
 }
 
 

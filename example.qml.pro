@@ -25,11 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     source/main.cpp \
-    source/form/main_.cpp
+    source/form/main_.cpp \
+    source/form/labels.cpp
 
 HEADERS += \
     source/form/main_.h \
-    source/utility/assert.h
+    source/utility/assert.h \
+    source/form/labels.h
 
 FORMS +=
 

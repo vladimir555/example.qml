@@ -16,12 +16,12 @@ class Main: public QObject {
 
 public:
     Main();
-   ~Main() = default;
+    virtual ~Main() = default;
 
     void show();
 
 private:
-    void updateFormButtonsState();
+    void updateFormButtonsState(QList<bool> const &buttons_state);
 
     QStringList getButtonsName();
     QList<bool> getButtonsState();
@@ -30,6 +30,8 @@ private:
         QString name;
         bool    is_enabled;
     };
+
+    static QList<TButton>  createButtonsByPassword(QString const &password);
 
     QQmlApplicationEngine   m_engine;
     QQuickView              m_view;

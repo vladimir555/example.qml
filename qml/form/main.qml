@@ -6,9 +6,14 @@ import QtQuick.Layouts 1.3
 
 Item {
     function updateFormButtonsState(buttons_state) {
+        var is_visible_any = false;
+
         for (var i = 0; i < buttons.count; i++) {
+            is_visible_any = is_visible_any | buttons_state[i]
             buttons.itemAt(i).visible = buttons_state[i]
         }
+
+        button_new.visible = is_visible_any
 
         console.log(buttons_state)
     }
@@ -65,7 +70,7 @@ Item {
                 id: button
                 implicitWidth: 150
                 Layout.alignment: Qt.AlignCenter
-                visible: true
+                visible: false
                 text: qsTr("" + modelData)
             }
         }
@@ -75,6 +80,7 @@ Item {
             implicitWidth: 150
             Layout.columnSpan: parent.columns
             anchors.horizontalCenter: parent.horizontalCenter
+            visible: false
             text: qsTr("New window")
             onClicked: {
                 console.log(form.buttons_state)
