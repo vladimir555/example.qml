@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <qlogging.h>
+#include <QTranslator>
 
 #include "form/main_.h"
 
@@ -10,6 +11,11 @@ int main(int argc, char *argv[]) {
     QGuiApplication application(argc, argv);
 
     QQuickStyle::setStyle("Universal");
+
+    QTranslator translator;
+    translator.load(
+        "application_ru.ts");
+    qApp->installTranslator(&translator);
 
     try {
         form::Main main_form;

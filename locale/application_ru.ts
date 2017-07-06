@@ -4,9 +4,14 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../qml/form/main.qml" line="30"/>
-        <source>Exit</source>
-        <translation>Orbis, te saluto!</translation>
+        <location filename="../qml/form/main.qml" line="62"/>
+        <source>Enter</source>
+        <translation>Логин</translation>
+    </message>
+    <message>
+        <location filename="../qml/form/main.qml" line="84"/>
+        <source>New window</source>
+        <translation>Новое окно</translation>
     </message>
 </context>
 </TS>

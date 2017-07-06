@@ -59,7 +59,7 @@ Item {
             implicitWidth: 150
             Layout.alignment: Qt.AlignCenter
             onClicked: form.onButtonEnterClicked()
-            text: qsTr("Enter")
+            text: QT_TR_NOOP("Enter")
         }
 
         Repeater {

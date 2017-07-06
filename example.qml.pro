@@ -44,3 +44,5 @@ RESOURCES += \
     application.qrc
 
 TRANSLATIONS += locale/application_ru.ts
+
+SOURCE += qml/form/*.qml
