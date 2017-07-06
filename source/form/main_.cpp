@@ -75,7 +75,6 @@ QList<bool> Main::getButtonsState() {
 
 QList<Main::TButton> Main::createButtonsByPassword(QString const &password) {
     auto button = tr("Button");
-    qDebug() << button;
     // operator password
     if (password == "") {
         return QList<TButton> ({

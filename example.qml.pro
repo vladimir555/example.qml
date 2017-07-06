@@ -38,9 +38,15 @@ FORMS +=
 DISTFILES += \
     qml/form/main.qml \
     qml/form/labels.qml \
-    locale/main_ru.ts
+    locale/application_ru.ts
 
 RESOURCES += \
     application.qrc
 
-TRANSLATIONS += locale/main_ru.ts
+TRANSLATIONS += locale/application_ru.ts
+
+lupdate_only {
+    SOURCES += \
+        qml/form/main.qml \
+        qml/form/labels.qml
+}

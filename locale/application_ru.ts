@@ -10,6 +10,13 @@
     </message>
 </context>
 <context>
+    <name>labels</name>
+    <message>
+        <source>Label_</source>
+        <translation type="vanished">Метка</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/form/main.qml" line="62"/>
@@ -20,6 +27,14 @@
         <location filename="../qml/form/main.qml" line="84"/>
         <source>New window</source>
         <translation>Новое окно</translation>
+    </message>
+</context>
+<context>
+    <name>labels</name>
+    <message>
+        <location filename="../qml/form/labels.qml" line="53"/>
+        <source>Label_</source>
+        <translation>Метка</translation>
     </message>
 </context>
 </TS>
