@@ -5,6 +5,7 @@
 #include <QTranslator>
 
 #include "form/main_.h"
+#include "logic/main__.h"
 
 
 int main(int argc, char *argv[]) {
@@ -20,6 +21,7 @@ int main(int argc, char *argv[]) {
         qDebug() << "translatinon not loaded";
 
     try {
+        logic::Main::instance().initialize();
         form::Main main_form;
         main_form.show();
 

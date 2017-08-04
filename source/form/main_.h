@@ -13,8 +13,8 @@ namespace form {
 
 class Main: public QObject {
     Q_OBJECT
-    Q_PROPERTY(QStringList buttons_name READ getButtonsName)
-    Q_PROPERTY(QList<bool> buttons_state READ getButtonsState)
+    Q_PROPERTY(QStringList button_names  READ getButtonNames)
+    Q_PROPERTY(QList<bool> button_states READ getButtonVisibleStates)
 
 public:
     Main();
@@ -23,21 +23,13 @@ public:
     void show();
 
 private:
-    void updateFormButtonsState(QList<bool> const &buttons_state);
+    void updateFormButtonsState(QList<bool> const &button_states);
 
-    QStringList getButtonsName();
-    QList<bool> getButtonsState();
-
-    struct TButton {
-        QString name;
-        bool    is_enabled;
-    };
-
-    static QList<TButton>   createButtonsByPassword(QString const &password);
+    QStringList getButtonNames();
+    QList<bool> getButtonVisibleStates();
 
     QQmlApplicationEngine   m_engine;
     QQuickView              m_view;
-    QList<TButton>          m_buttons;
     QObject                *m_text_field_password;
     QObject                *m_window_main;
 

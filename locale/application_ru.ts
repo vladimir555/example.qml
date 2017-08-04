@@ -2,18 +2,11 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
-    <name>form::Main</name>
+    <name>logic::Main</name>
     <message>
-        <location filename="../source/form/main_.cpp" line="77"/>
+        <location filename="../source/logic/main__.cpp" line="8"/>
         <source>Button</source>
         <translation>Кнопка</translation>
-    </message>
-</context>
-<context>
-    <name>labels</name>
-    <message>
-        <source>Label_</source>
-        <translation type="vanished">Метка</translation>
     </message>
 </context>
 <context>
@@ -27,14 +20,6 @@
         <location filename="../qml/form/main.qml" line="84"/>
         <source>New window</source>
         <translation>Новое окно</translation>
-    </message>
-</context>
-<context>
-    <name>labels</name>
-    <message>
-        <location filename="../qml/form/labels.qml" line="53"/>
-        <source>Label_</source>
-        <translation>Метка</translation>
     </message>
 </context>
 </TS>

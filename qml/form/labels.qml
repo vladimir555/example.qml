@@ -5,15 +5,15 @@ import QtQuick.Layouts 1.3
 
 
 Item {
-    function updateFormLabelsState(buttons_state) {
+    function updateFormLabelsState(button_states) {
         var is_visible_any = false;
 
         for (var i = 0; i < labels.count; i++) {
-            is_visible_any = is_visible_any | buttons_state[i]
-            labels.itemAt(i).visible = buttons_state[i]
+            is_visible_any = is_visible_any | button_states[i]
+            labels.itemAt(i).visible = button_states[i]
         }
 
-        console.log(buttons_state)
+        console.log(button_states)
     }
 
     id: window_label

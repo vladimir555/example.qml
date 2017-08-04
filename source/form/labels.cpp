@@ -2,7 +2,9 @@
 
 #include <QQmlContext>
 
-#include "../utility/assert.h"
+#include "utility/assert.h"
+
+#include "logic/main__.h"
 
 
 using utility::assertExists;
@@ -11,10 +13,9 @@ using utility::assertExists;
 namespace form {
 
 
-Labels::Labels(const QList<bool> &buttons_state)
+Labels::Labels()
 :
-    m_view(&m_engine, nullptr),
-    m_buttons_state(buttons_state)
+    m_view(&m_engine, nullptr)
 {
     m_view.rootContext()->setContextProperty("form", this);
     m_view.setSource(QStringLiteral("qrc:/qml/form/labels.qml"));
@@ -22,7 +23,6 @@ Labels::Labels(const QList<bool> &buttons_state)
     m_window_labels = assertExists(
         m_view.findChild<QObject *>("window_labels"),
         "window_labels not found");
-
 }
 
 
@@ -31,9 +31,9 @@ void Labels::show() {
 }
 
 
-void Labels::updateFormLabelState(QList<bool> const &buttons_state) {
+void Labels::updateFormLabelState() {
     QMetaObject::invokeMethod(m_window_labels, "updateFormLabelsState",
-        Q_ARG(QVariant, QVariant::fromValue(buttons_state)));
+        Q_ARG(QVariant, QVariant::fromValue(logic::Main::instance().getButtonVisibleStates())));
 }
 
 

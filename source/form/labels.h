@@ -12,17 +12,16 @@ namespace form {
 
 class Labels : public QObject {
 public:
-    Labels(QList<bool> const &buttons_state);
+    Labels();
     virtual ~Labels() = default;
 
     void show();
 
-    void updateFormLabelState(QList<bool> const &buttons_state);
+    void updateFormLabelState();
 
 private:
     QQmlEngine              m_engine;
     QQuickView              m_view;
-    QList<bool>             m_buttons_state;
 
     QObject                *m_window_labels;
 };

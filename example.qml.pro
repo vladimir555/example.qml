@@ -26,12 +26,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     source/main.cpp \
     source/form/main_.cpp \
-    source/form/labels.cpp
+    source/form/labels.cpp \
+    source/logic/main__.cpp \
 
 HEADERS += \
     source/form/main_.h \
+    source/form/labels.h \
+    source/logic/main__.h \
     source/utility/assert.h \
-    source/form/labels.h
+    source/utility/smart_ptr.h \
+    source/utility/pattern/initializable.h \
+    source/utility/pattern/singleton.h \
+    source/utility/pattern/non_movable.h \
+    source/utility/pattern/non_copyable.h
+
+INCLUDEPATH += source/
 
 FORMS +=
 

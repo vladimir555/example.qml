@@ -5,17 +5,17 @@ import QtQuick.Layouts 1.3
 
 
 Item {
-    function updateFormButtonsState(buttons_state) {
+    function updateFormButtonsState(button_states) {
         var is_visible_any = false;
 
         for (var i = 0; i < buttons.count; i++) {
-            is_visible_any = is_visible_any | buttons_state[i]
-            buttons.itemAt(i).visible = buttons_state[i]
+            is_visible_any = is_visible_any | button_states[i]
+            buttons.itemAt(i).visible = button_states[i]
         }
 
         button_new.visible = is_visible_any
 
-        console.log(buttons_state)
+        console.log(button_states)
     }
 
     id: window_main
@@ -64,7 +64,7 @@ Item {
 
         Repeater {
             id: buttons
-            model: form.buttons_name
+            model: form.button_names
 
             delegate: Button {
                 id: button
@@ -84,7 +84,7 @@ Item {
             text: qsTr("New window")
             onClicked: {
                 form.onButtonNewWindowClicked()
-                console.log(form.buttons_state)
+                console.log(form.button_states)
             }
         }
     }
