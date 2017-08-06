@@ -20,20 +20,9 @@ int main(int argc, char *argv[]) {
     else
         qDebug() << "translatinon not loaded";
 
-    try {
-        logic::Main::instance().initialize();
-        form::Main main_form;
-        main_form.show();
-
-        return application.exec();
-    } catch (std::exception const &e) {
-        qDebug() << e.what();
-    }
+    logic::Main::instance().initialize();
+    form::Main main_form;
+    main_form.show();
 
     return application.exec();
-
-//    engine.load(QUrl(QStringLiteral("qrc:/qml/form/main.qml")));
-//    engine.load(QUrl(QStringLiteral("qrc:/qml/form/labels.qml")));
-//    engine.load(QUrl(QStringLiteral("qrc:/qml/form/labels.qml")));
-
 }
